@@ -28,7 +28,7 @@ The [Auth](https://docs.sst.dev/auth) module is a dedicated set of components bu
 
 You know the actors, it's now time to get to the comparison bullet points, let's fight 😇
 
-![[mateusz-waclawek-t2b2svMf8ek-unsplash Large.jpeg]]
+![](/img/next-auth.jpeg)
 
 ## Round 1: Supported Adapters/Providers!
 

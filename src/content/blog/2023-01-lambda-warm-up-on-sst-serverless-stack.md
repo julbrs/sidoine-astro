@@ -18,7 +18,7 @@ description: Setup a good old warm-up system on SST (Serverless Stack) to avoid 
 
 One of the biggest issue is the **cold time start**. Every time a query hit Lambda to run a function, a new small container need to be boot up to handle the query. This system is automatic and not customizable for developer side, but it can take some time, aka the cold start time:
 
-![](img/2023-02-28-23-35-03.png)
+![](/img/warmup.png)
 _(from the article [Serverless Framework: Warming up AWS Lambda to avoid “cold start”](https://itnext.io/serverless-framework-warming-up-aws-lambda-to-avoid-cold-start-2be579475531))_
 
 Depending on the runtime, it can vary from ~ 200ms to a few seconds (sometime 12s on Java for example!). It's an issue if the Lambda is exposed on HTTP via an API Gateway. You don't want to let your customer wait 12s to refresh this specific area of the page 😅

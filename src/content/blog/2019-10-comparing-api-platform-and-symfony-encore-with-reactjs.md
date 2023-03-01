@@ -30,7 +30,7 @@ It is a Symfony package that allow to use frontend javascript inside Symfony. It
 
 It is possible to have a Single Page Application or to create multiple React app inside the same Symfony package. You must run the Symfony server and the encore app when you are developing on the application. There is no ‘auto-refresh’ feature like you have on a CRA React app.
 
-![[Pasted image 20221106200318.png]]
+![](/img/symfony1.png)
 
 ## API Platform
 
@@ -40,7 +40,7 @@ The documentation is here [https://api-platform.com](https://api-platform.com/)
 
 The development environment is based on Docker containers, and it has been developed to make it easy to deploy on cloud ready systems (like k8n or other).
 
-![[Pasted image 20221106200343.png]]
+![](/img/symfony2.png)
 
 There is no way in this project to use the ‘default’ template layout of Symfony, you must have a SPA application. There is only one React app needed !
 

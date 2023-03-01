@@ -17,7 +17,7 @@ I am currently working on the architecture of a new project for my company. This
 
 Martin Fowler was describing in a article back in 2004 a way to slowly replace a monolith by a new product: the [Strangler Fig Pattern](https://martinfowler.com/bliki/StranglerFigApplication.html). The main advantage: a slow migration, one endpoint by one endpoint, not a bigbang. This pattern is actually widely used when refactoring an application to micro-services for example.
 
-![[Pasted image 20230111172741.png]]
+![](/img/strangler1.png)
 _From [Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig)_
 
 ## Why in SST (Serverless Stack)?
@@ -28,7 +28,7 @@ _From [Microsoft Learn](https://learn.microsoft.com/en-us/azure/architecture/pat
 
 Based on a [AWS reInvent presentation](https://d1.awsstatic.com/events/reinvent/2019/REPEAT_1_Migrating_monolithic_applications_with_the_strangler_pattern_FSI302-R1.pdf) (Youtube video link [here](https://www.youtube.com/watch?v=E2dnSg-IHdo)), I was convinced to use an **API Gateway** with the `ANY /{proxy+}` to facade the application:
 
-![[Pasted image 20230111173023.png]]
+![](/img/strangler2.png)
 _From AWS Presentation, [Migrating monolithic applications with the strangler pattern](https://d1.awsstatic.com/events/reinvent/2019/REPEAT_1_Migrating_monolithic_applications_with_the_strangler_pattern_FSI302-R1.pdf)_
 
 Starting from there I have tried to simulate a monolith application (represented by a `ApplicationLoadBalancedFargateService` CDK construct in my project). The implementation of the monolith is not very important, I just rely on the **Application Load Balancer** (there is 99% chance you have such service if your monolith is hosted on AWS, either on EC2 or ECS!).
@@ -73,10 +73,10 @@ const api = new Api(stack, "api", {
 And _voilà_, I can build new routes with SST, and all routes not specified in `routes` will be handled by the old application declared in the `ApplicationLoadBalancedFargateService`.
 
 The route `/` is answered by my `lambda.handler` function:
-![[Pasted image 20230111174021.png]]
+![](/img/strangler3.png)
 
 Any other routes are answered by my monolith:
-![[Pasted image 20230111174103.png]]
+![](/img/strangler4.png)
 
 ## To Conclude
 

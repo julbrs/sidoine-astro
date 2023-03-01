@@ -19,7 +19,7 @@ I was asked a few weeks ago to build a new page on a existing Wordpress site, in
 
 [Link to page](https://distances.plus/le-coin-des-partenaires/)
 
-![[Pasted image 20221106202521.png]]
+![](/img/wordpress1.png)
 
 I am not very efficient to work on Wordpress template system (not my cup of tea!), and I have now a solid background around React frontend. I want to see how it can be possible to integrate, on an existing Wordpress installation, one React application to produce this particular need.
 
@@ -35,7 +35,7 @@ There is multiple ways to mix Wordpress and React, but I will show you two examp
 
 ### Build a javascript frontend using Wordpress REST API
 
-![[Pasted image 20221106202548.png]]
+![](/img/wordpress2.png)
 
 Wordpress comes with a nice [REST API](https://developer.wordpress.org/rest-api/), and so it's possible to build a classic Single Page Application (using CreateReactApp for example) that consume this API. Wordpress is still used to write articles, but the website generated is driven by a different frontend application. It's the *Headless CMS* concept. This article is a great guide to achieve this:
 
@@ -144,7 +144,7 @@ yarn && yarn start
 
 Replace `yarn` by `npm` if needed ! It will start a browser and show you this:
 
-![[Pasted image 20221106202649.png]]
+![](/img/wordpress3.png)
 
 You can start by editing any of the file under `frontend/src` and actually develop your application.
 
@@ -287,11 +287,11 @@ Find out more about deployment here:
 
 Login on your Wordpress installation and activate the `my-react-app` plugin. Then in any page or article, use the short-code `[my_react_app]`like this:
 
-![[Pasted image 20221106202756.png]]
+![](/img/wordpress4.png)
 
 If you publish the page you will see:
 
-![[Pasted image 20221106202807.png]]
+![](/img/wordpress5.png)
 
 It's a win 🏆 !
 

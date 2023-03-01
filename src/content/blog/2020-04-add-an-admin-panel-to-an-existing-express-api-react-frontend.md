@@ -25,7 +25,7 @@ It must manage:
 
 ## AdminBro
 
-![[adminbro.png]]
+![](/img/adminbro.png)
 
 Just an admin-panel to add on Express app. There is no easy way to add a file upload feature ([this](https://adminbro.com/DropZone.html) can help). But it is a great tool to not modify to much my existing solution.
 
@@ -56,7 +56,7 @@ This is a framework. No admin interface.
 
 This is a hosted version of Parse server. Parse use to be a tool provided by Facebook, but it now an open-source tool [here](https://parseplatform.org/). It seems we cannot consume data as raw RESTapi but rather with a dedicated SDK.
 
-![[back4app.png]]
+![](/img/back4app.png)
 
 Provide lots of stuff out of the box
 
@@ -69,7 +69,7 @@ Provide lots of stuff out of the box
 
 [This](https://marmelab.com/react-admin) is a React library that can generate an admin panel. It rely on existing REST or GraphQL API , with a a DataProvider object that explain how to communicate with the API. It is needed to write the DataProvider if your API does not stick exactly with an [already available](https://marmelab.com/react-admin/DataProviders.html#available-providers) DataProvider. In my case the *Simple REST* was not compatible directly.
 
-![[react-admin.png]]
+![](/img/react-admin.png)
 
 ## Conclusion
 

@@ -50,25 +50,25 @@ And that's it. My son is using it this way:
 
 This is the initial part, you must create a new EC2 instance. From the EC2 dashboard, click on `Launch Instance` and choose the *Amazon Linux 2 AMI* with the *x86* option.
 
-![[minecraft1.png]]
+![](/img/minecraft1.png)
 
 Next you must choose the *Instance Type*. I recommend you the `t2.small` for Minecraft. You will able to change it after the creation.
 
-![[minecraft2.png]]
+![](/img/minecraft2.png)
 
 Click on `Next: Configure Instance Details` to continue the configuration. Keep the default settings, and the default size for the disk (8 GB) as it's enough.
 
 For the tag screen I generally provide a `Name` (it's then displayed on EC2 instance list) and a `costcenter` (I use it for cost management later).
 
-![[minecraft4.png]]
+![](/img/minecraft4.png)
 
 For the Security Group, it the equivalent of a firewall on EC2 and you must configure which port will be accessible from internet on your server. I add SSH port and the Minecraft port (25565) like you see on the following screen:
 
-![[minecraft5.png]]
+![](/img/minecraft5.png)
 
 Then to start the instance you must select or create a key pair. It's mandatory and allow then to connect remotely to your EC2 instance. In my case I am using an existing key pair but if you create a new key don't forget to download on your laptop the *private key file*.
 
-![[minecraft6.png]]
+![](/img/minecraft6.png)
 
 _Yes my key is named caroline. Why not?_
 
@@ -80,7 +80,7 @@ ssh -i my_private_key.pem ec2-user@public-ipv4
 
 The `public-ipv4` is available in the instance list:
 
-![[minecraft7.png]]
+![](/img/minecraft7.png)
 
 You first need java. As newer build of minecraft (since 1.17) are running only on Java 17, I recommend to use Corretto (the Amazon Java version):
 
@@ -172,7 +172,7 @@ Let's first create our Lambda function. Go into **Lambda**, and click on `Crea
 
 Then you must have this type of screen:
 
-![[minecraft8.png]]
+![](/img/minecraft8.png)
 
 Replace the content of `index.js` file with the following:
 
@@ -211,21 +211,21 @@ In Configuration, set the following:
 
 - the role permissions must include the right to start our EC2 instance like this:
 
-![[minecraft9.png]]
+![](/img/minecraft9.png)
 
 In Simple Email Service, it's time to create a new *Rule Set* in the `Email Receiving` section:
 
-![[minecraft10.png]]
+![](/img/minecraft10.png)
 
 Click on `Create rule` inside `default-rule-set`. Take note that the Email Receiving feature is only available today in 3 regions: `us-east-1`, `us-west-2` and `eu-west-1` (source [here](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html)).
 
 If SES is receiving an email on this particular identity:
 
-![[minecraft11.png]]
+![](/img/minecraft11.png)
 
 It invoke a Lambda function:
 
-![[minecraft12.png]]
+![](/img/minecraft12.png)
 
 > You must add the domain to the Verified identities to make this work. It's also necessary to publish an MX entry in order to declare SES as the email receiver for a specific domain or subdomain (more info here).
 
@@ -287,11 +287,11 @@ In Configuration, set the following:
 
 - the role permissions must include the right to start our EC2 instance like this:
 
-![[minecraft13.png]]
+![](/img/minecraft13.png)
 
 We add a trigger to fire the task every 20 minutes:
 
-![[minecraft14.png]]
+![](/img/minecraft14.png)
 
 Hurray the configuration is done !
 

@@ -22,7 +22,7 @@ I currently live in Montreal where we have very good public libraries to borrow 
 
 The point is that I have 3 kids, and my wife also have an account. Yep, we have 5 accounts on the system and things started to get difficult when I have to check on each account !
 
-![[nelligan1.png]]
+![](/img/nelligan1.png)
 _Nelligan catalog, the end-user library system_
 
 The catalog system is named *Nelligan*, but searching on the source of the [website](https://nelligan.ville.montreal.qc.ca/search), you will easily find it is a commercial solution named [III Encore](https://www.iii.com/products/sierra-ils/encore-discovery/). The public website doesn’t allow *multi-account* option of something.
@@ -59,7 +59,7 @@ My main service file is [here](https://github.com/bobman38/nelligan/blob/master
 
 It is then very easy to order books by end-of-loan date…
 
-![[nelligan2.png]]
+![](/img/nelligan2.png)
 _Books ordered by end of loan date, from multiple cards_
 
 To get more on this application here is some links:

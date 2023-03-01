@@ -31,10 +31,10 @@ Eclipse is relying on a *workspace* concept where you import Java projects. My
 
 VSCode is more like other editor (Atom...), and you can simply open a folder that contain your multi-modules Maven project. If some project have been removed then you will not see it anymore.
 
-![[vscode.png]]
+![](/img/vscode.png)
 _Folder presentation in VSCode_
 
-![[eclipse.png]]
+![](/img/eclipse.png)
 _Workspace in Eclipse_
 
 It's not a big difference but for me it is more easy to switch between projects. I do not loose anymore time to import projects, I just open the right folder. There is also a *workspace* system in VSCode to open multiple folder at once, it may be useful if you work on multiple projects at the same time (front and back for example).
@@ -43,24 +43,24 @@ It's not a big difference but for me it is more easy to switch between projects.
 
 The global experience is very good.
 
-![[vscode-autocomplete.png]]
+![](/img/vscode-autocomplete.png)
 
 You still have auto-completion and JavaDoc is shown when it's necessary. There is also an equivalent of the *Run Configuration* with the *Run* panel to fire your project.
 
-![[vscode-run-config.png]]
+![](/img/vscode-run-config.png)
 The *Run* panel rely on a `launch.json` file, and it can be saved on your git repository if you want to share it with team-workers.
 
 ## Test ?
 
 The right extension help to run tests. There is also some *helpers* to run the test directly before the test method or the test class.
 
-![[vscode-test.png]]
+![](/img/vscode-test.png)
 
 ## Share your code ?
 
 Git is directly available in VSCode. I have never rely on any Git add-on in Eclipse, as I found some products buggy. So I was relying only on the Git command line. I still rely a lot on the command line but I am happy to see this very good integration of Git directly into the product.
 
-![[vscode-git.png]]
+![](/img/vscode-git.png)
 
 And you have some indicator directly in the editor (green if new line, red if removed lines...). I have never see this kind of indication inside Eclipse. Probably I have never installed the right extension ;)
 
@@ -68,7 +68,7 @@ And you have some indicator directly in the editor (green if new line, red if re
 
 There is also a Maven extension that let you execute all Maven commands. But here I prefer using the excellent terminal that let you do what you want. It's here, just use it.
 
-![[Pasted image vscode-console.png]]
+![](/img/vscode-console.png)
 
 ## Conclusion
 

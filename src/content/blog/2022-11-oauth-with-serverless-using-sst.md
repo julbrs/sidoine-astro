@@ -110,7 +110,7 @@ yarn dev
 
 And you can try to login on Google:
 
-![[smugmug1.gif]]
+![](/img/smugmug1.gif)
 
 It doesn't work because of the mis-configuration of the application for the deployed backend but basically it's just a configuration point. Let's set up what we need for SmugMug authentication. Here is the flow we want:
 
@@ -415,10 +415,11 @@ In `web/src/App.jsx`, line 70:
 
 And that's it ; you made it!
 
-![[smugmug2.gif]]
+![](/img/smugmug2.gif)
 
 The `session` page is a bit buggy here because we didn't adapt the Google data to the SmugMug data. But you can check that we can retrieve user information in the developer tools:
-![[smugmug3.png]]
+
+![](/img/smugmug3.png)
 
 Here is the [GitHub repository of the final project](https://github.com/julbrs/sst-smugmug-auth).
 

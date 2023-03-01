@@ -18,7 +18,8 @@ description: How I have built a Twitter bot that help me to book an appointment 
 
 I am currently living in **Montréal, QC** but I am still a **French citizen**. So like thousands of French citizens living abroad, I rely on the French Consulate for a few administrative procedures, including passeport renewal. And in the last years, it has been more and more complex to book an appointment in order to renew or ask for a passeport:
 
-![[consulate1.png]]
+![](/img/consulate1.png)
+
 No appointment available on French Montreal Consulate as of today...
 
 So my plan was to **automate the retrieval of available appointements** in order to be able to book a slot (for my wife), and send it to **a tool where a notification system is available**, and Twitter seems a good candidate.
@@ -55,7 +56,7 @@ Twitter is providing an [API](https://developer.twitter.com/en/docs/twitter-api)
 
 The first step here is to understand if it’s possible to grab programmatically the appointment list for the Consulate. Here my best tool is the **Developer Tools** menu that you can open in any decent browser nowadays (generally with `F12`). Here is the one I have on Chrome:
 
-![[consulate2.png]]
+![](/img/consulate2.png)
 
 Some important points:
 
@@ -65,7 +66,7 @@ Some important points:
 
 Another exemple:
 
-![[consulate3.png]]
+![](/img/consulate3.png)
 
 Here the endpoint is named `avaibility` (yes, there is a typo 😅, **TROOV** is a french company 😇), and the **query string parameters** sent contains a specific date (`2022-06-01`). The result (not shown here by available on the Response tab) is **an empty array**, and this is exactly what the user is getting on the application: no slot available for June 1st.
 
@@ -80,7 +81,7 @@ So to resume:
 
 Then my approach was to try to code this manual process. Again Developers Tools are good help here, because you can directly copy an API call to the desired output:
 
-![[consulate4.png]]
+![](/img/consulate4.png)
 
 Here I can easily copy the call to a **Node.js fetch** command. It’s also possible to get a **cURL** command line (to paste in your terminal for example), but my goal was to build a small script so Node is a good option here.
 
@@ -90,7 +91,7 @@ Here I can easily copy the call to a **Node.js fetch** command. It’s also poss
 - create a new file `test.js` where you paste the **Copy > Copy as Node.js fetch** result, encapsulated in an async method (see below for the code)
 - run it with `node test.js`:
 
-![[consulate5.png]]
+![](/img/consulate5.png)
 
 <aside> 👉 That a first win! It’s possible to call programmatically the endpoint to retrieve some useful information!!
 
@@ -146,7 +147,7 @@ This first win 🏆 might seems easy but there is some challenges to deal with:
 
 When investigating the `reservations-sessions` endpoint, I found that the endpoint is sending back a lot of information with the detail of each service (`zones`) available in the Consulate:
 
-![[consulate6.png]]
+![](/img/consulate6.png)
 
 Actually I am just extracting the needed information:
 
@@ -299,7 +300,7 @@ As of today there is 3 Twitter accounts set up to help you renew your French pas
 
 And a tweet is created on the corresponding account each time a new slot is found:
 
-![[consulate7.png]]
+![](/img/consulate7.png)
 
 The operational cost of the whole infrastructure is negligible (still showing _0.00 USD_ after a few days 🤑, probably still in the free tiers of Lambda and API Gateway usage...), It’s highly redondant and there is no server to manage or update...
 

@@ -34,7 +34,8 @@ Serverless is "is a cloud computing execution model in which the cloud provider 
 
 Basically you just define a function in a supported language, you push it to your cloud provider and *voilà!*, it's accessible and you don't have to deal with servers. It's the developer dream!
 
-![[lambda.png]]
+![](/img/lambda.png)
+
 _A very simple serverless function on AWS!_
 
 ### Framework for Serverless
@@ -53,7 +54,7 @@ The back-and-forth is generally more costly because the code cannot be run direc
 
 ### What is the Serverless Framework?
 
-![[serverless.png]]
+![](/img/serverless.png)
 
 [This](https://www.serverless.com/) particular framework was introduced back in 2015 (under the name JAWS, source: [Wikipedia](https://en.wikipedia.org/wiki/Serverless_Framework)). The project have an astonishing **40k** stars on [Github](https://github.com/serverless/serverless)! This framework offer a high number of features:
 
@@ -100,7 +101,7 @@ I use it to build some simple scheduling jobs on AWS, and build some full featur
 
 ### What is the Serverless Stack (SST)?
 
-![[sst2.png]]
+![](/img/sst2.png)
 
 [This](https://serverless-stack.com/) framework is much more recent. There is a couple of post here on **DEV** from [Franck Wang](https://dev.to/fwang), the author of this framework starting on September 2020 ([here](https://dev.to/aws-builders/using-serverless-framework-and-cdk-together-12he) and [here](https://dev.to/aws-builders/work-on-your-lambda-functions-live-51cp)). The project have only **3k** stars on [Github](https://github.com/serverless-stack/serverless-stack) (at the time of writing this article).
 

@@ -126,7 +126,8 @@ As said previously SST is based on CDK so it use intrinsically all CDK concepts,
 
 One example provided in the first [article](https://dev.to/julbrs/sst-the-most-underrated-serverless-framework-you-need-to-discover-25ne) was using the `Api` object, it's probably the most basic SST Construct available! Let's get a view on the most important constructs available in the framework and understand how it can help you.
 
-![[sst3.png]]
+![](/img/sst3.png)
+
 (*Go* [_here_](https://docs.serverless-stack.com/) *to get the full list!*)
 
 ### Api

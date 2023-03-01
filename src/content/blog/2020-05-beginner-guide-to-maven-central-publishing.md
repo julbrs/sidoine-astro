@@ -32,7 +32,7 @@ Maybe you are asking yourself why pushing to Maven Central when we have in 2020 
 - create a JIRA account [here](https://issues.sonatype.org/secure/Signup!default.jspa)
 - Create a new issue using [this](https://issues.sonatype.org/secure/CreateIssue.jspa?issuetype=21&pid=10134) template.
 
-![[Pasted image 20221106201645.png]]
+![](/img/maven1.png)
 
 The issue must describe the project you want to share. The most important information in the case is the `groupId`. The `groupId` is the main identification of you as a package provider, so it must be unique. It is generally an url in reverse order like : `to.dev`.
 
@@ -140,7 +140,7 @@ mvn versions:revert # back to previous version
 
 After a few hours you will be able to see your package on [Maven Search](https://search.maven.org/)
 
-![[Pasted image 20221106201814.png]]
+![](/img/maven2.png)
 
 **Nice job !**
 
@@ -148,7 +148,7 @@ After a few hours you will be able to see your package on [Maven Search](https:
 
 During my exploration I have found this tool : [https://jitpack.io/](https://jitpack.io/)
 
-![[Pasted image 20221106201833.png]]
+![](/img/maven3.png)
 
 It seems to be an easy way to consume an existing git repository as maven dependency. I have not yet tested it but it feels like the *flexible* I miss with Maven (*Composer* for PHP allow to consume git repo, *npmjs* allow to consume git repo, etc...)
 
