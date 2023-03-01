@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://sidoine.org/",
+  site: "https://julbrs.github.io/",
   integrations: [
     tailwind({
       config: {
