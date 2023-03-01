@@ -12,7 +12,12 @@ const posts = Object.values(postImportResult);
 export function getStaticPaths() {
   return posts
     .filter(({ data }) => !data.ogImage)
-    .map(({ data }) => ({
-      params: { ogTitle: data.title },
-    }));
+
+    .map(({ data }) => {
+      const ogTitle = data.title.replace(/[\/#\?]/g, "");
+
+      return {
+        params: { ogTitle },
+      };
+    });
 }
