@@ -170,8 +170,8 @@ Under the hood it take advantage of the CDK [events.Rule](https://docs.aws.amazo
 
 Even if you can't find this specific plugin or feature in [SST](https://sst.dev/), it's not so complex to build around with the power of CDK. I think this is the greatest advantage of this framework 😍. To continue your journey don't leave before reading the following around SST!
 
-- [[OAuth with Serverless using SST]]
-- [[Using the Strangler Fig Pattern in SST]]
-- [[🔒 Next Auth vs SST Auth]]
+- [OAuth with Serverless using SST](/oauth-with-serverless-using-sst)
+- [Using the Strangler Fig Pattern in SST](/using-the-strangler-fig-pattern-in-sst)
+- [🔒 Next Auth vs SST Auth](/next-auth-vs-sst-auth)
 
 [Contact me on Twitter 🐣!](https://twitter.com/_julbrs)

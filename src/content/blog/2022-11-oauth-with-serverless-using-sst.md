@@ -9,20 +9,20 @@ tags:
   - serverless
   - oauth
   - smugmug
-description: Compare Symfony Encore with ReactJS and API Platform
+description: Part 4 of a series around SST - Serverless Stack. In this article, we will see how to implement OAuth with Serverless using SST.
 ---
 
 > [!NOTE] SST Series
 > This article is part of a series around SST - Serverless Stack. I will try to let you discover some amazing aspects of this particular solution in the serverless world.
 >
-> - Part 1: [[SST is The Most Underrated Serverless Framework You Need to Discover]]
-> - Part 2: [[SST is The Most Underrated Serverless Framework You Need to Discover (part 2)]]
-> - Part 3: [[Why and How Migrate From Firebase to Serverless Stack?]]
-> - Part 4: [[OAuth with Serverless using SST]]
+> - Part 1: [SST is The Most Underrated Serverless Framework You Need to Discover](/sst-the-most-underrated-serverless-framework-you-need-to-discover)
+> - Part 2: [SST is The Most Underrated Serverless Framework You Need to Discover (part 2)](/sst-the-most-underrated-serverless-framework-you-need-to-discover-part-2)
+> - Part 3: [Why and How Migrate From Firebase to Serverless Stack?](/why-and-how-migrate-from-firebase-to-serverless-stack)
+> - Part 4: [OAuth with Serverless using SST](/oauth-with-serverless-using-sst)
 
 ## Why we Need Authentication in a Serverless Application?
 
-Once you have built your first serverless application, you may need to quickly invest effort in a authentication layer. For example on [[Why and How Migrate From Firebase to Serverless Stack?]] we choose to use an authentication based on **Google** in order to save some data relative to each user of our application.
+Once you have built your first serverless application, you may need to quickly invest effort in a authentication layer. For example on [Why and How Migrate From Firebase to Serverless Stack?](/why-and-how-migrate-from-firebase-to-serverless-stack) we choose to use an authentication based on **Google** in order to save some data relative to each user of our application.
 
 ## Why it's a Challenge?
 

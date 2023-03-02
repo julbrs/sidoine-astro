@@ -15,10 +15,10 @@ description: Why and How Migrate From Firebase to SST (Serverless Stack)? A prac
 > [!NOTE] SST Series
 > This article is part of a series around SST - Serverless Stack. I will try to let you discover some amazing aspects of this particular solution in the serverless world.
 >
-> - Part 1: [[SST is The Most Underrated Serverless Framework You Need to Discover]]
-> - Part 2: [[SST is The Most Underrated Serverless Framework You Need to Discover (part 2)]]
-> - Part 3: [[Why and How Migrate From Firebase to Serverless Stack?]]
-> - Part 4: [[OAuth with Serverless using SST]]
+> - Part 1: [SST is The Most Underrated Serverless Framework You Need to Discover](/sst-the-most-underrated-serverless-framework-you-need-to-discover)
+> - Part 2: [SST is The Most Underrated Serverless Framework You Need to Discover (part 2)](/sst-the-most-underrated-serverless-framework-you-need-to-discover-part-2)
+> - Part 3: [Why and How Migrate From Firebase to Serverless Stack?](/why-and-how-migrate-from-firebase-to-serverless-stack)
+> - Part 4: [OAuth with Serverless using SST](/oauth-with-serverless-using-sst)
 
 [Firebase](https://firebase.google.com/) is a fantastic tool. It allows you to build mobile or web applications without having to manage a backend by yourself. But somehow, this comes with some drawbacks. In this article I will explain you why you may want to switch, and a practical guide to switch.
 

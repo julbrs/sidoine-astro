@@ -81,6 +81,17 @@ const fallbackImageURL = new URL(SITE.ogImage, Astro.url.origin).href;
       )
     }
 
+    <!-- Goat Counter, build mode only -->
+    {
+      import.meta.env.MODE === "production" && (
+        <script
+          data-goatcounter="https://sidoine.goatcounter.com/count"
+          async
+          src="//gc.zgo.at/count.js"
+        />
+      )
+    }
+
     <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body>

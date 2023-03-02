@@ -9,14 +9,14 @@ tags:
   - serverless
   - nextjs
   - oauth
-description: Compare Next Auth vs SST Auth
+description: "A side-by-side comparison of Next Auth and SST Auth: two solutions to implement OAuth authentication in your Next.js application."
 ---
 
-In a previous article, I describe how to use [[OAuth with Serverless using SST|SST Auth]] construct in order to implement an OAuth authentication workflow for your application. [Next.js](https://nextjs.org/), the _React framework for production_ is also providing a component named [NextAuth.js](https://next-auth.js.org/) that can be used to implement such authentication system. Let's compare the two solutions! 🤺
+In a previous article, I describe how to use [SST Auth](/oauth-with-serverless-using-sst) construct in order to implement an OAuth authentication workflow for your application. [Next.js](https://nextjs.org/), the _React framework for production_ is also providing a component named [NextAuth.js](https://next-auth.js.org/) that can be used to implement such authentication system. Let's compare the two solutions! 🤺
 
 ## What is SST Auth?
 
-[SST](https://sst.dev/) is framework designed to build **backend serverless applications** initially. I have already written a couple of articles on this solution ([[SST is The Most Underrated Serverless Framework You Need to Discover|here]] and [[SST is The Most Underrated Serverless Framework You Need to Discover (part 2)|here]] for example). It provides features to deploy web applications too (for example via the [StaticSite](https://docs.sst.dev/constructs/StaticSite) construct) so it's advertised as a tool to build _full-stack serverless applications_.
+[SST](https://sst.dev/) is framework designed to build **backend serverless applications** initially. I have already written a couple of articles on this solution ([here](/sst-the-most-underrated-serverless-framework-you-need-to-discover) and [here](/sst-the-most-underrated-serverless-framework-you-need-to-discover-part-2) for example). It provides features to deploy web applications too (for example via the [StaticSite](https://docs.sst.dev/constructs/StaticSite) construct) so it's advertised as a tool to build _full-stack serverless applications_.
 
 The [Auth](https://docs.sst.dev/auth) module is a dedicated set of components built by the SST team to implement an authentication system inside your application. It works well with a web application like a React app.
 
@@ -34,7 +34,7 @@ You know the actors, it's now time to get to the comparison bullet points, let's
 
 Nowadays, authentification is not only email-password credentials. It's more **social logins** like Google, Facebook, or GitHub. It's more secure for the application developer (no more password to store!) and for the application end-user (no new password to remember!). Let's check what is supported by our two choices.
 
-First, **SST Auth** is supporting out of the box today (November 2022) [seven adapters](https://docs.sst.dev/auth#adapters): Google, GitHub, Twitch, Facebook, Magic Link, OAuth, and OIDC. The last two are generic adapters that can be used for any application which is supporting [OAuth2](https://oauth.net/2/) or [OIDC](https://openid.net/connect/). Finally, there is an option to build a [Custom Adapter](https://docs.sst.dev/auth#custom-adapters) if nothing fit your needs. For example in this [[OAuth with Serverless using SST|last article]], I have built a custom adapter to support **SmugMug**, which is relying on the **OAuth 1.0a** protocol.
+First, **SST Auth** is supporting out of the box today (November 2022) [seven adapters](https://docs.sst.dev/auth#adapters): Google, GitHub, Twitch, Facebook, Magic Link, OAuth, and OIDC. The last two are generic adapters that can be used for any application which is supporting [OAuth2](https://oauth.net/2/) or [OIDC](https://openid.net/connect/). Finally, there is an option to build a [Custom Adapter](https://docs.sst.dev/auth#custom-adapters) if nothing fit your needs. For example in this [last article](/oauth-with-serverless-using-sst), I have built a custom adapter to support **SmugMug**, which is relying on the **OAuth 1.0a** protocol.
 
 **NextAuth.js** is supporting out the box more than [20 providers](https://next-auth.js.org/providers/): the classic ones like Google, Facebook, and GitHub are here, but there are more options compared to SST Auth. Additionally, there is also an [email](https://next-auth.js.org/configuration/providers/email) provider (can be compared to the _Magic Link_ one on SST Auth) or a [custom provider](https://next-auth.js.org/configuration/providers/oauth#using-a-custom-provider). Finally, the [Credentials](https://next-auth.js.org/configuration/providers/credentials) provider is an ideal solution if you need to login via username password, or other arbitrary credentials (YubiKey for example).
 
@@ -197,7 +197,7 @@ export const handler = AuthHandler({
 });
 ```
 
-_Example took from [[OAuth with Serverless using SST]]_
+_Example took from [OAuth with Serverless using SST](/oauth-with-serverless-using-sst)_
 
 With **NextAuthjs**, it's possible to implement an [adapter](https://next-auth.js.org/adapters/overview) (⚠️ NextAuthjs adapter is not the same as an SST Auth adapter!). There are more than 10 options, including DynamoDB, Firebase, Prisma, FaunaDB... Let's zoom in on DynamoDB adapter here:
 
@@ -272,7 +272,7 @@ Regarding **NextAuth.js**, you will have to deploy a **Next.js** application. Th
 
 It's by design not fair to compare tools that are not in the same category! But I think it's useful sometimes to compare a specific feature (here authentication) as the implementation in both solutions is very comparable.
 
-**SST** is a really good option when you need to build an application that will have to rely on multiple AWS services; it's possible to define using _Infrastructure as Code_ and then consume a [Queue](https://docs.sst.dev/constructs/Queue), a [Bucket](https://docs.sst.dev/constructs/Bucket), a [Database](https://docs.sst.dev/constructs/RDS) to name a few available constructs. It's the most extensible solution here. Read my introduction to SST here: [[SST is The Most Underrated Serverless Framework You Need to Discover]]
+**SST** is a really good option when you need to build an application that will have to rely on multiple AWS services; it's possible to define using _Infrastructure as Code_ and then consume a [Queue](https://docs.sst.dev/constructs/Queue), a [Bucket](https://docs.sst.dev/constructs/Bucket), a [Database](https://docs.sst.dev/constructs/RDS) to name a few available constructs. It's the most extensible solution here. Read my introduction to SST here: [SST is The Most Underrated Serverless Framework You Need to Discover](/sst-the-most-underrated-serverless-framework-you-need-to-discover)
 
 **NextAuth.js** is _just_ a library, and it's more quick to add the authentication layer in an existing **Next.js** application with this solution. It's the most integrated solution here.
 
