@@ -1,14 +1,14 @@
 ---
 import { SITE } from "@config";
-import Posts from "@layouts/Posts.astro";
-import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
 
 import { getCollection } from "astro:content";
+import Outdoor from "@layouts/Outdoor.astro";
+import getSortedPosts from "@utils/getSortedPosts";
 
 const posts = await getCollection(
   "blog",
-  ({ data }) => data.type === "article"
+  ({ data }) => data.type === "outdoor"
 );
 
 const sortedPosts = getSortedPosts(posts);
@@ -18,4 +18,4 @@ const totalPages = getPageNumbers(sortedPosts.length);
 const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage);
 ---
 
-<Posts posts={paginatedPosts} pageNum={1} totalPages={totalPages.length} />
+<Outdoor posts={paginatedPosts} pageNum={1} totalPages={totalPages.length} />

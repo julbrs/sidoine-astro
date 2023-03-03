@@ -1,5 +1,6 @@
 {
     "pasteImage.path": "${projectRoot}/public/img",
     "pasteImage.basePath": "${projectRoot}/public",
-    "pasteImage.prefix": "/"
+    "pasteImage.prefix": "/",
+    "cSpell.language": "en,fr"
 }

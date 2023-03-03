@@ -1,0 +1,47 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import Posts from "@layouts/Posts.astro";
+import getSortedPosts from "@utils/getSortedPosts";
+import getPageNumbers from "@utils/getPageNumbers";
+import { SITE } from "@config";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection(
+    "blog",
+    ({ data }) => !data.draft && data.type === "article"
+  );
+
+  return getPageNumbers(posts.length).map(pageNum => ({
+    params: { slug: String(pageNum) },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const posts = await getCollection(
+  "blog",
+  ({ data }) => data.type === "article"
+);
+const sortedPosts = getSortedPosts(posts);
+
+const totalPages = getPageNumbers(sortedPosts.length);
+
+const currentPage =
+  slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
+    ? Number(slug)
+    : 0;
+const lastPost = currentPage * SITE.postPerPage;
+const startPost = lastPost - SITE.postPerPage;
+
+const paginatedPosts = sortedPosts.slice(startPost, lastPost);
+---
+
+<Posts
+  posts={paginatedPosts}
+  pageNum={currentPage}
+  totalPages={totalPages.length}
+/>
