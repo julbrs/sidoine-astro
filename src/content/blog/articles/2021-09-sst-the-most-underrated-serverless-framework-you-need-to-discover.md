@@ -67,7 +67,7 @@ The main piece in the framework is the `serverless.yml` file that is the confi
 
 Here is an example file (from [serverless/examples repo](https://github.com/serverless/examples/blob/master/aws-node-rest-api/serverless.yml)):
 
-```plain
+```
 service: aws-node-rest-api
 
 frameworkVersion: '2'
@@ -115,7 +115,7 @@ The framework is relying on [CDK](https://aws.amazon.com/cdk/) which is an AWS
 
 A simple example of the framework:
 
-```plain
+```
 new Api(this, "Api", {
   routes: {
     "GET  /notes": "src/list.main",

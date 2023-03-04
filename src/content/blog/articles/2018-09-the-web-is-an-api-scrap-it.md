@@ -40,14 +40,14 @@ Mainly the game is not so hard :
 
 - Find a way to login via Request API :
 
-```plain
+```
 login = {'code': code, 'pin': pin}
 r = requests.post(NELLIGAN_URL + '/patroninfo/?', data = login)
 ```
 
 - Then find a way to read the data I want in the page :
 
-```plain
+```
 # Grab loans (currently taken)
 soup = BeautifulSoup(r.text, 'html.parser')
 items = soup.select("tr.patFuncEntry")

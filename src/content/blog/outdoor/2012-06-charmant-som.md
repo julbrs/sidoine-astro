@@ -3,7 +3,7 @@ pubDatetime: 2012-06-03 19:00:00
 title: Bivouac au Charmant Som (02 juin 2012)
 tags:
   - chartreuse
-ogImage: ./IMG_5946.JPG
+ogImage: /img/outdoor/IMG_5946.JPG
 description: Un bivouac au Charmant Som, avec Camille, pour tester la tarp et le matos léger.
 type: outdoor
 ---
@@ -22,7 +22,7 @@ accessible de la Chartreuse, avec un beau point de vue sur le relief
 environnant : Chamechaude, Grand Som, Dent de Crolles, Grande Sure,
 Pinéa, Mont Blanc au loin...
 
-![](./IMG_5912.JPG)
+![](/img/outdoor/IMG_5912.JPG)
 
 Après une petite demi-heure de montée, on arrive déjà au sommet,
 accompagné par un chamois. Le temps est magnifique et le soleil commence
@@ -47,8 +47,8 @@ pentes du Charmant Som... Le petit déj expédié, on rentre par un sentier
 différent, descendant au nord du Charmant Som et qui retombe sur notre
 point de départ, les chalets et l'auberge.
 
-Ce fut une sortie sympatique, suivi au 'pas de course' par une rando en
-famille jusqu'à la dent de Moirans, sous un soleil de plomb attenué par
+Ce fut une sortie sympathique, suivi au 'pas de course' par une rando en
+famille jusqu'à la dent de Moirans, sous un soleil de plomb atténué par
 le sentier très idéalement ombragé !
 
 ![](/img/outdoor/IMG_5946.JPG)

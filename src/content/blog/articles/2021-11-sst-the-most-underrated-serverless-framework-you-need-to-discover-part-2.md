@@ -30,7 +30,7 @@ The [Serverless Stack (SST)](https://serverless-stack.com/) is based on the [
 
 Terraform allow you to declare cloud resources via the *HashiCorp Configuration Language (HCL)*:
 
-```plain
+```
 resource "aws_instance" "iac_in_action" {
   ami               = var.ami_id
   instance_type     = var.instance_type
@@ -50,7 +50,7 @@ resource "aws_instance" "iac_in_action" {
 
 On the opposite CDK allow you to declare cloud resources via *TypeScript*, *Python*, *Java* or *.Net* (maybe more now?)!
 
-```plain
+```
 import * as ec2 from '@aws-cdk/aws-ec2';
 import * as iam from '@aws-cdk/aws-iam';
 import * as cdk from '@aws-cdk/core';
@@ -101,7 +101,7 @@ You can think about a set of basic cloud resources are managed behind a construc
 
 For example [here](https://awscdk.io/packages/@aws-cdk/aws-ecs-patterns@1.95.1/#/) we can see how it's possible to use the construct `ApplicationLoadBalancedFargateService` in a few lines of codes:
 
-```plain
+```
 const loadBalancedFargateService = new ecsPatterns.ApplicationLoadBalancedFargateService(stack, 'Service', {
   cluster,
   memoryLimitMiB: 1024,
@@ -132,7 +132,7 @@ One example provided in the first [article](https://dev.to/julbrs/sst-the-most-
 
 ### Api
 
-```plain
+```
 const api = new Api(this, "Api", {
   routes: {
     "GET  /notes": "src/list.main",
@@ -145,7 +145,7 @@ The most simple one, to declare API HTTP endpoints very quickly. It mimics what 
 
 ### Auth
 
-```plain
+```
 import { Auth } from "@serverless-stack/resources";
 
 const auth = new Auth(this, "Auth", {
@@ -157,7 +157,7 @@ const auth = new Auth(this, "Auth", {
 
 You can then manage the permissions:
 
-```plain
+```
 auth.attachPermissionsForAuthUsers([
   api,
 ]);
@@ -169,7 +169,7 @@ Authenticated user of the `auth` object will be allowed to access the API endp
 
 The [Table](https://docs.serverless-stack.com/constructs/Table) construct will handle for you a DynamoDB table:
 
-```plain
+```
 import { Table, TableFieldType } from "@serverless-stack/resources";
 
 const table = new Table(this, "Notes", {
@@ -183,7 +183,7 @@ const table = new Table(this, "Notes", {
 
 Then if you want to allow the Lambda functions inside your `api` object to be able to read / write in the table you have to specify that with the `permissions` prop:
 
-```plain
+```
 new Api(this, "Api", {
   defaultFunctionProps: {
     permissions: [table],
@@ -201,7 +201,7 @@ new Api(this, "Api", {
 
 Let's imagine you have a `frontend/` folder inside the SST application with a classic *ReactJs* application. Add the following to your SST stack:
 
-```plain
+```
 const site = new ReactStaticSite(this, "ReactSite", {
   path: "frontend/",
 });
@@ -223,7 +223,7 @@ Generally you will use some `REACT_APP_*` variables in your ReactJs applicatio
 
 SST is providing a very efficient way to handle that without messing with a `.env` file anymore! First define the variable in the `ReactStaticSite` construct like that:
 
-```plain
+```
 new ReactStaticSite(this, "ReactSite", {
   path: "path/to/src",
   environment: {
@@ -237,13 +237,13 @@ Then in combination with the [Live Lambda Development](https://docs.serverless-
 
 Add the following package to your ReactJs application:
 
-```plain
+```
 npm install --save-dev @serverless-stack/static-site-env
 ```
 
 And change the `start` script in `package.json`:
 
-```plain
+```
 "scripts": {
   "start": "sst-env -- react-scripts start",
   "build": "react-scripts build",

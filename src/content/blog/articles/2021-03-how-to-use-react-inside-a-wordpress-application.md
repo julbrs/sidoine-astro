@@ -75,7 +75,7 @@ In the `plugins` folder of your wordpress application, make a new folder named
 
 Inside `my-react-app` let's bootstrap a new Create React App project:
 
-```plain
+```
 npx create-react-app frontend
 ```
 
@@ -119,7 +119,7 @@ add_shortcode('my_react_app', 'my_react_app');
 
 You will end with this structure:
 
-```plain
+```
 plugins
 └── my-react-app
     ├── frontend
@@ -138,7 +138,7 @@ Good ! The basic setup is now working ! Let's test it!
 
 Go into the `frontend` folder. Start the development server by running:
 
-```plain
+```
 yarn && yarn start
 ```
 
@@ -154,7 +154,7 @@ In order to use your application in Wordpress you need to **build** it. I have
 
 First install `craco`:
 
-```plain
+```
 yarn add @craco/craco
 ```
 
@@ -299,7 +299,7 @@ It's a win 🏆 !
 
 Inside the React application it's very easy to consume the REST API. I am actually using a `API` constant that point to the correct endpoint:
 
-```plain
+```
 export const API = process.env.REACT_APP_API || `${window.origin}/wp-json`;
 ```
 
@@ -344,7 +344,7 @@ I want to deploy only the builded version, and never the `src` folder. So each
 
 Inside my `trellis/group_vars/SERVER/main.yml` I have added:
 
-```plain
+```
 deploy_build_before:
   - '{{ playbook_dir }}/deploy-hooks/build-before-my-react-app.yml'
 ```
@@ -353,7 +353,7 @@ This will add a script before build time.
 
 Let's now create the `build-before-my-react-app.yml` file in `trellis/deploy-hooks` folder:
 
-```plain
+```
 - name: Install npm dependencies
   command: yarn
   delegate_to: localhost

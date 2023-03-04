@@ -43,7 +43,7 @@ So **yes**, it's possible to write a bit of python code that will connect to Ji
 
 This small section will list all *Epics* for a specific project and a specific version, and generate a nice table (using [pandas](https://pandas.pydata.org/)), with a footer for a sum of estimation.
 
-```plain
+```
 # Show epics with consumed time and estimated time
 project = "MYPROJECT"
 version = "1.0.0"

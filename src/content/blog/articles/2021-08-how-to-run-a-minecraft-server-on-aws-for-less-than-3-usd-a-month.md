@@ -74,7 +74,7 @@ _Yes my key is named caroline. Why not?_
 
 Then you must connect your instance via SSH, I recommend this [guide](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) if you need help. Basically you must run this kind of command:
 
-```plain
+```
 ssh -i my_private_key.pem ec2-user@public-ipv4
 ```
 
@@ -84,7 +84,7 @@ The `public-ipv4` is available in the instance list:
 
 You first need java. As newer build of minecraft (since 1.17) are running only on Java 17, I recommend to use Corretto (the Amazon Java version):
 
-```plain
+```
 sudo rpm --import https://yum.corretto.aws/corretto.key
 sudo curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
 sudo yum install -y java-17-amazon-corretto-devel.x86_64
@@ -93,7 +93,7 @@ java --version
 
 You must have something like:
 
-```plain
+```
 openjdk 17.0.1 2021-10-19 LTS
 OpenJDK Runtime Environment Corretto-17.0.1.12.1 (build 17.0.1+12-LTS)
 OpenJDK 64-Bit Server VM Corretto-17.0.1.12.1 (build 17.0.1+12-LTS, mixed mode, sharing)
@@ -103,7 +103,7 @@ Thanks [@mudhen459](https://dev.to/mudhen459) for the research on this java is
 
 And I want a dedicated user:
 
-```plain
+```
 sudo adduser minecraft
 ```
 
@@ -111,7 +111,7 @@ To install Minecraft you can rely on the Minecraft server page [here](https://w
 
 For example for the version `1.17.1` I can run the following:
 
-```plain
+```
 sudo su
 mkdir /opt/minecraft/
 mkdir /opt/minecraft/server/
@@ -125,7 +125,7 @@ sudo chown -R minecraft:minecraft /opt/minecraft/
 > [!WARNING] Java version
 > It seems that starting with Minecraft 1.17, it require now a Java JRE 16 (instead of Java JRE 8).This site is giving you links to download older Minecraft versions if needed.
 
-```plain
+```
 Exception in thread "main" java.lang.UnsupportedClassVersionError: net/minecraft/server/Main has been compiled by a more recent version of the Java Runtime (class file version 60.0), this version of the Java Runtime only recognizes class file versions up to 52.0
 ```
 
@@ -133,7 +133,7 @@ I have created a little service to avoid start manually the server. I want the M
 
 To do that I have created a file under `/etc/systemd/system/minecraft.service` with the following content:
 
-```plain
+```
 [Unit]
 Description=Minecraft Server
 After=network.target
@@ -156,7 +156,7 @@ WantedBy=multi-user.target
 
 Then advise the new service by the following:
 
-```plain
+```
 chmod 664 /etc/systemd/system/minecraft.service
 systemctl daemon-reload
 ```
@@ -176,7 +176,7 @@ Then you must have this type of screen:
 
 Replace the content of `index.js` file with the following:
 
-```plain
+```
 const AWS = require("aws-sdk");
 var ec2 = new AWS.EC2();
 
@@ -237,7 +237,7 @@ Let's first create our Lambda function. Go into **Lambda**, and click on `Crea
 
 Replace the content of `index.js` file with the following:
 
-```plain
+```
 const AWS = require("aws-sdk");
 var ec2 = new AWS.EC2();
 
