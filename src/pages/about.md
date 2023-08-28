@@ -3,15 +3,15 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-My name is Julien Bras, I’m a **software developer** with a particular interest in **technical writing**.
+My name is Julien Bras, I’m a **senior software developer** with a particular interest in **technical writing**.
 
 ### In a nutshell
 
-I am currently working for [Wiiisdom](https://wiiisdom.com/) as **Innovation Manager**, with a software development team to deliver **solutions** used by **Wiiisdom customers and employees**. I am also member of the [Draft.dev](http://draft.dev/) **writer team**, creating blog post around multiple technical subjects (cloud platform, analytics, testing...).
+I am currently working for [Wiiisdom](https://wiiisdom.com/) as **Staff Engineer**, with a software development team to deliver **solutions** used by **Wiiisdom customers and employees**. I am also member of the [Draft.dev](http://draft.dev/) **writer team**, creating blog post around multiple technical subjects (cloud platform, analytics, testing...).
 
 ## Anything else?
 
-I live currently in ~~Montréal~~ Sherbrooke, QC 🍁. I have 3 kids (⇒ lot of fun 👨‍👩‍👧‍👦  but still no emoji with 3 kids!). I run, [sometimes](https://statistik.d-u-v.org/getresultperson.php?runner=803064) 😅 , but only slowly and long ones!
+I live currently in Sherbrooke, QC 🍁. I have 3 kids (⇒ lot of fun 👨‍👩‍👧‍👦  but still no emoji with 3 kids!). I run, [sometimes](https://statistik.d-u-v.org/getresultperson.php?runner=803064) 😅 , but only slowly and long ones!
 
 ## Contact
 
