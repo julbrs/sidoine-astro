@@ -23,7 +23,10 @@ const next = pageNum < totalPages ? "" : "disabled";
 
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="outdoor" />
-  <Main pageTitle="Outdoor" pageDesc="Sorties">
+  <Main
+    pageTitle="Outdoor"
+    pageDesc="Cette section regroupe en français dans le texte mes articles sur les sorties - plus ou moins longues - effectuée en randonnée ou trail. J'aime partager et garder une trace des sorties qui m'ont marquées!"
+  >
     <ul>
       {
         posts.map(({ data }) => (
