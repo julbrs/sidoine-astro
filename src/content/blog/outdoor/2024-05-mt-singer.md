@@ -8,7 +8,7 @@ description: On aime ça les Montagne Vertes! Est-ce que ça fonctionne avec un 
 type: outdoor
 ---
 
-**Randonnée itinérante du 19 au 21 mai 2024 dans les Montagnes Vertes au Québec.**
+**Randonnée itinérante du 19 au 20 mai 2024 dans les Montagnes Vertes au Québec.**
 
 > Il y a beaucoup d'excitation autour du camping cette année dans la famille. Mettons c'est parce qu'on en a pas trop fait l'an passé? En tout cas ma gang est motivé pour commencer assez tôt!
 
