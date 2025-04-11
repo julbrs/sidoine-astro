@@ -4,6 +4,8 @@ description: "Un granola délicieux parfait pour le déjeuner!"
 pubDate: "Jul 08 2022"
 source: https://www.freshoffthegrid.com/pecan-maple-granola-bag/
 heroImage: "./granola.jpg"
+tags:
+  - déj
 ---
 
 ## Ingrédients

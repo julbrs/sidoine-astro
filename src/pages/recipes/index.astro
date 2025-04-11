@@ -10,16 +10,43 @@ const posts = (await getCollection("recipe")).sort(
 ---
 
 <Layout title="Recettes" description="Explorez nos délicieuses recettes de cuisine.">
-  <section>
-    <ul>
+  <section class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center mb-12 text-fuchsia-600">Nos Recettes</h1>
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
-        posts.map((post) => (
-          <li>
-            <a href={`/recipes/${post.id}/`}>
-              <Image width={720} height={360} src={post.data.heroImage || defaultImage} alt="" />
+        posts.map((post, index) => (
+          <li
+            class="h-full transform hover:scale-105 transition-all duration-300"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <a
+              href={`/recipes/${post.id}/`}
+              class="block h-full bg-gradient-to-br from-yellow-100 via-pink-100 to-purple-100 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl border-2 border-purple-300 transition-all duration-300"
+            >
+              <div class="relative h-56 overflow-hidden">
+                <Image
+                  width={720}
+                  height={360}
+                  src={post.data.heroImage || defaultImage}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
+                <div class="absolute top-3 right-3 bg-fuchsia-500 text-white rounded-full p-2 rotate-12 shadow-md">
+                  <span class="text-xs font-bold">YUM!</span>
+                </div>
+              </div>
 
-              <h4 class="title">{post.data.title}</h4>
-              <p class="date">{/* <FormattedDate date={post.data.pubDate} /> */}</p>
+              <div class="p-6">
+                <h4 class="text-2xl font-extrabold mb-3 text-purple-700">{post.data.title}</h4>
+                <p class="text-gray-700 mb-5 line-clamp-2 italic">{post.data.description}</p>
+                <div class="flex flex-wrap gap-2">
+                  {post.data.tags?.map((tag) => (
+                    <span class="px-3 py-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xs font-bold rounded-full shadow-sm animate-pulse">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </a>
           </li>
         ))

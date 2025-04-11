@@ -4,6 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
 
 import { render } from "astro:content";
+import Prose from "@/components/Prose.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("recipe");
@@ -14,31 +15,85 @@ export async function getStaticPaths() {
 }
 
 type Props = CollectionEntry<"recipe">;
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props["data"];
+const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props["data"];
 const { Content } = await render(Astro.props);
 ---
 
 <Layout title={title} description={description}>
-  <article>
-    <div class="hero-image">
-      {heroImage && <Image width={500} height={300} src={heroImage} alt="" />}
-    </div>
-    <div class="prose">
-      <div class="title">
-        <div class="date">
-          <!-- <FormattedDate date={pubDate} /> -->
-          {
-            updatedDate && (
-              <div class="last-updated-on">
-                {/* Last updated on <FormattedDate date={updatedDate} /> */}
-              </div>
-            )
-          }
+  <article class="container mx-auto px-4 py-8">
+    <div
+      class="max-w-4xl mx-auto bg-gradient-to-br from-yellow-100 via-pink-100 to-purple-100 rounded-3xl overflow-hidden shadow-xl border-2 border-purple-300"
+    >
+      <div class="relative">
+        {
+          heroImage && (
+            <div class="relative h-80 overflow-hidden">
+              <Image
+                width={1200}
+                height={600}
+                src={heroImage}
+                alt={title}
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <h1 class="absolute bottom-6 left-8 text-4xl font-extrabold text-white drop-shadow-lg">
+                {title}
+              </h1>
+            </div>
+          )
+        }
+
+        <div
+          class="absolute top-4 right-4 bg-fuchsia-500 text-white rounded-full p-3 rotate-12 shadow-lg animate-pulse"
+        >
+          <span class="font-bold">Délicieux!</span>
         </div>
-        <h1>{title}</h1>
-        <hr />
       </div>
-      <Content />
+
+      <div class="p-8">
+        {
+          tags && (
+            <div class="flex flex-wrap gap-2 mb-6">
+              {tags.map((tag) => (
+                <span class="px-3 py-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-xs font-bold rounded-full shadow-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )
+        }
+
+        <div class="prose-lg mx-auto bg-white/70 p-6 rounded-xl shadow-inner">
+          <p class="text-xl text-purple-700 italic font-medium mb-6">{description}</p>
+          <div class="date text-sm text-gray-600 mb-4">
+            <span
+              >Publié le {
+                pubDate?.toLocaleDateString("fr-FR", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })
+              }</span
+            >
+          </div>
+          <hr class="border-t-2 border-purple-300 my-6" />
+          <div
+            class="prose prose-a:text-pink-600 prose-a:underline hover:prose-a:text-pink-800
+                    prose-p:text-justify prose-p:my-4 prose-p:text-gray-700
+                    prose-img:rounded-xl
+                    prose-headings:font-bold
+                    prose-h2:text-2xl prose-h2:text-purple-700 prose-h2:mt-8 prose-h2:mb-4
+                    prose-h3:text-xl prose-h3:text-fuchsia-600 prose-h3:mt-6 prose-h3:mb-3
+                    prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4 prose-ul:space-y-2
+                    prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4 prose-ol:space-y-2
+                    prose-li:text-gray-700
+                    prose-strong:text-purple-700 prose-strong:font-bold
+                    prose-em:text-fuchsia-600 prose-em:italic"
+          >
+            <Content />
+          </div>
+        </div>
+      </div>
     </div>
   </article>
 </Layout>

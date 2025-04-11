@@ -37,10 +37,12 @@ const recipe = defineCollection({
     z.object({
       title: z.string(),
       description: z.string(),
+      source: z.string().optional(),
       // Transform string to Date object
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       heroImage: image().optional(),
+      tags: z.array(z.string()).optional(),
     }),
 });
 
