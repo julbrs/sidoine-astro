@@ -1,0 +1,44 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("recipe");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+
+type Props = CollectionEntry<"recipe">;
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props["data"];
+const { Content } = await render(Astro.props);
+---
+
+<Layout title={title} description={description}>
+  <article>
+    <div class="hero-image">
+      {heroImage && <Image width={500} height={300} src={heroImage} alt="" />}
+    </div>
+    <div class="prose">
+      <div class="title">
+        <div class="date">
+          <!-- <FormattedDate date={pubDate} /> -->
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                {/* Last updated on <FormattedDate date={updatedDate} /> */}
+              </div>
+            )
+          }
+        </div>
+        <h1>{title}</h1>
+        <hr />
+      </div>
+      <Content />
+    </div>
+  </article>
+</Layout>

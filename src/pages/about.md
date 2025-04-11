@@ -1,18 +1,50 @@
 ---
-layout: ../layouts/AboutLayout.astro
+layout: "../layouts/LayoutProse.astro"
 title: "About"
 ---
 
-My name is Julien Bras, I’m a **senior software developer** with a particular interest in **technical writing**.
+Hello world!
 
-### In a nutshell
+# dd
 
-I am currently working for [Wiiisdom](https://wiiisdom.com/) as **Staff Engineer**, with a software development team to deliver **solutions** used by **Wiiisdom customers and employees**. I am also member of the [Draft.dev](http://draft.dev/) **writer team**, creating blog post around multiple technical subjects (cloud platform, analytics, testing...).
+generate text to test markdown
 
-## Anything else?
+## Heading Level 2
 
-I live currently in Sherbrooke, QC 🍁. I have 3 kids (⇒ lot of fun 👨‍👩‍👧‍👦  but still no emoji with 3 kids!). I run, [sometimes](https://statistik.d-u-v.org/getresultperson.php?runner=803064) 😅 , but only slowly and long ones!
+This is a paragraph with **bold text**, _italic text_, and `inline code`.
 
-## Contact
+### Heading Level 3
 
-You can contact me on [Twitter](https://twitter.com/_julbrs) or [Linkedin](https://www.linkedin.com/in/julienbras/), I would love to chat with you!
+- This is a bullet point
+- Another bullet point
+  - A nested bullet point
+  - Another nested bullet point
+
+#### Heading Level 4
+
+1. This is a numbered list
+2. Second item
+3. Third item
+
+> This is a blockquote. It can contain multiple paragraphs.
+
+```javascript
+// This is a code block
+function test() {
+  console.log("Hello world!");
+  return true;
+}
+```
+
+[This is a link](https://example.com)
+
+![This is an image placeholder](../assets/default-recipe.png)
+
+| Table | Header | Example |
+| ----- | ------ | ------- |
+| Cell  | Cell   | Cell    |
+| Row 2 | Row 2  | Row 2   |
+
+---
+
+This is a horizontal rule above this text.

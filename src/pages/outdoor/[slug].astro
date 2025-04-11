@@ -1,47 +1,64 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
-import Posts from "@layouts/Posts.astro";
-import getSortedPosts from "@utils/getSortedPosts";
-import getPageNumbers from "@utils/getPageNumbers";
-import { SITE } from "@config";
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
 
-export interface Props {
-  post: CollectionEntry<"blog">;
-}
+import { render } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
+import CampingIcons from "@/components/CampingIcons.astro";
+import Prose from "@/components/Prose.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection(
-    "blog",
-    ({ data }) => !data.draft && data.type === "outdoor"
-  );
-
-  return getPageNumbers(posts.length).map(pageNum => ({
-    params: { slug: String(pageNum) },
+  const posts = await getCollection("outdoor");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
   }));
 }
 
-const { slug } = Astro.params;
-
-const posts = await getCollection(
-  "blog",
-  ({ data }) => data.type === "outdoor"
-);
-const sortedPosts = getSortedPosts(posts);
-
-const totalPages = getPageNumbers(sortedPosts.length);
-
-const currentPage =
-  slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
-    ? Number(slug)
-    : 0;
-const lastPost = currentPage * SITE.postPerPage;
-const startPost = lastPost - SITE.postPerPage;
-
-const paginatedPosts = sortedPosts.slice(startPost, lastPost);
+type Props = CollectionEntry<"outdoor">;
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props["data"];
+const { Content } = await render(Astro.props);
 ---
 
-<Posts
-  posts={paginatedPosts}
-  pageNum={currentPage}
-  totalPages={totalPages.length}
-/>
+<Layout title={title} description={description}>
+  <article class="relative max-w-4xl mx-auto px-4 sm:px-6 bg-stone-50">
+    <CampingIcons />
+
+    <div class="my-8 text-center">
+      {
+        heroImage && (
+          <Image
+            width={800}
+            height={500}
+            src={heroImage}
+            alt={title}
+            class="rounded-xl shadow-md max-w-full h-auto object-cover"
+          />
+        )
+      }
+    </div>
+
+    <div class="mx-auto max-w-2xl leading-relaxed">
+      <div class="mb-8">
+        <div class="flex items-center gap-2 text-emerald-800 mb-4">
+          <span class="text-xl">🌲</span>
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="ml-auto text-sm italic">
+                Updated: <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <h1 class="text-4xl font-bold text-emerald-900 my-2 font-['Montserrat']">{title}</h1>
+        <p class="text-xl text-emerald-700 mt-3 italic">{description}</p>
+        <hr class="border-none h-0.5 bg-emerald-200 my-8" />
+      </div>
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
+  </article>
+</Layout>

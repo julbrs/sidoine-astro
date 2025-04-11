@@ -1,21 +1,71 @@
 ---
-import { SITE } from "@config";
-import getPageNumbers from "@utils/getPageNumbers";
-
 import { getCollection } from "astro:content";
-import Outdoor from "@layouts/Outdoor.astro";
-import getSortedPosts from "@utils/getSortedPosts";
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
-const posts = await getCollection(
-  "blog",
-  ({ data }) => data.type === "outdoor"
+import defaultImage from "@/assets/default-recipe.png";
+const posts = (await getCollection("outdoor")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-
-const sortedPosts = getSortedPosts(posts);
-
-const totalPages = getPageNumbers(sortedPosts.length);
-
-const paginatedPosts = sortedPosts.slice(0, SITE.postPerPage);
 ---
 
-<Outdoor posts={paginatedPosts} pageNum={1} totalPages={totalPages.length} />
+<Layout
+  title="Profiter de l'extérieur"
+  description="Explorez nos aventures en plein air, des randonnées aux activités de plein air."
+>
+  <section class="p-6 max-w-7xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold text-center text-emerald-800 mb-8">
+      Profiter de l'extérieur
+    </h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        posts.map((post, index) => (
+          <div
+            class={`bg-white rounded-lg overflow-hidden shadow-md border border-gray-200 transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg h-full ${
+              index === 0 ? "sm:col-span-2 lg:col-span-3 md:flex" : ""
+            }`}
+          >
+            <a
+              href={`/outdoor/${post.id}/`}
+              class={`flex ${index === 0 ? "md:flex-row" : "flex-col"} h-full w-full`}
+            >
+              <div class={`overflow-hidden ${index === 0 ? "md:w-3/5 md:h-full" : "aspect-video"}`}>
+                <Image
+                  width={index === 0 ? 1200 : 720}
+                  height={index === 0 ? 600 : 360}
+                  src={post.data.heroImage || defaultImage}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div
+                class={`${
+                  index === 0 ? "md:w-2/5 md:flex md:flex-col md:justify-center md:p-8" : "p-4"
+                } flex-grow flex flex-col border-t-2 md:border-l-2 md:border-t-0 border-green-500`}
+              >
+                <h2
+                  class={`${
+                    index === 0 ? "text-3xl md:text-4xl mb-4" : "text-xl mb-2"
+                  } font-semibold text-amber-900`}
+                >
+                  {post.data.title}
+                </h2>
+                {index === 0 && (
+                  <p class="text-slate-600 mb-4 line-clamp-3 md:line-clamp-6">
+                    {post.data.description || "Discover this outdoor adventure..."}
+                  </p>
+                )}
+                <p
+                  class={`text-sm ${index === 0 ? "md:text-base" : ""} text-slate-700 opacity-80 mt-auto`}
+                >
+                  <FormattedDate date={post.data.pubDate} />
+                </p>
+              </div>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

@@ -1,22 +1,48 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
-import PostDetails from "@layouts/PostDetails.astro";
-import slugify from "@utils/slugify";
-
-export interface Props {
-  post: CollectionEntry<"blog">;
-}
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import { render } from "astro:content";
+import Prose from "@/components/Prose.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
-
-  return posts.map(post => ({
-    params: { slug: slugify(post.data) },
-    props: { post },
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.data.postSlug },
+    props: post,
   }));
 }
 
-const { post } = Astro.props;
+type Props = CollectionEntry<"blog">;
+const { title, description, pubDate, updatedDate } = Astro.props["data"];
+const { Content } = await render(Astro.props);
 ---
 
-<PostDetails post={post} />
+<Layout title={title} description={description}>
+  <article class="max-w-3xl mx-auto px-4 py-8 bg-amber-50/50">
+    <div class="mb-8">
+      <div class="mb-6">
+        <div class="text-sm text-gray-600 mb-2">
+          <FormattedDate date={pubDate} />
+        </div>
+        <h1 class="text-4xl font-bold text-gray-800 tracking-tight font-serif mb-4">{title}</h1>
+        {
+          updatedDate && (
+            <div class="text-sm text-gray-500 mt-2">
+              Last updated: <FormattedDate date={updatedDate} />
+            </div>
+          )
+        }
+        <hr class="border-amber-100 my-6" />
+      </div>
+      <Prose>
+        <Content />
+      </Prose>
+    </div>
+    <div class="mt-12 pt-6 border-t border-amber-100">
+      <a href="/blog" class="text-amber-700 hover:underline font-medium"
+        >&larr; Back to all articles</a
+      >
+    </div>
+  </article>
+</Layout>
