@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 }
 
 type Props = CollectionEntry<"recipe">;
-const { title, description, pubDate, updatedDate, heroImage, tags } = Astro.props["data"];
+const { title, description, pubDate, heroImage, tags, source } = Astro.props["data"];
 const { Content } = await render(Astro.props);
 ---
 
@@ -75,10 +75,24 @@ const { Content } = await render(Astro.props);
                 })
               }</span
             >
-          </div>
-          <hr class="border-t-2 border-purple-300 my-6" />
-          <div
-            class="prose prose-a:text-pink-600 prose-a:underline hover:prose-a:text-pink-800
+            {
+              source && (
+                <div class="mt-2 flex items-center">
+                  <span class="font-medium text-purple-600">Source:</span>
+                  <a
+                    href={source.startsWith("http") ? source : `https://${source}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="ml-2 text-pink-500 hover:text-pink-700 transition-colors"
+                  >
+                    {source}
+                  </a>
+                </div>
+              )
+            }
+            <hr class="border-t-2 border-purple-300 my-6" />
+            <div
+              class="prose prose-a:text-pink-600 prose-a:underline hover:prose-a:text-pink-800
                     prose-p:text-justify prose-p:my-4 prose-p:text-gray-700
                     prose-img:rounded-xl
                     prose-headings:font-bold
@@ -89,8 +103,9 @@ const { Content } = await render(Astro.props);
                     prose-li:text-gray-700
                     prose-strong:text-purple-700 prose-strong:font-bold
                     prose-em:text-fuchsia-600 prose-em:italic"
-          >
-            <Content />
+            >
+              <Content />
+            </div>
           </div>
         </div>
       </div>
