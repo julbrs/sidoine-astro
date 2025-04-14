@@ -34,3 +34,6 @@ Une fois le granola doré, retirer du four et laisser refroidir complètement. B
 ### En randonnée
 
 Ajouter de l'eau (environ 80 ml ou 3 oz), remuer pour mélanger avec le lait en poudre. Déguster !
+
+> [!CAUTION]
+> Highlights information that users should take into account, even when skimming.
