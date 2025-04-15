@@ -7,6 +7,20 @@ import defaultImage from "@/assets/default-recipe.png";
 const posts = (await getCollection("recipe")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+
+// Array of food-related exclamations
+const foodExclamations = [
+  "YUM!",
+  "DÉLICE!",
+  "MIAM!",
+  "TASTY!",
+  "SO GOOD!",
+  "SAVEUR!",
+  "DÉLECTABLE!",
+  "EXQUIS!",
+  "GOURMAND!",
+  "RÉGAL!",
+];
 ---
 
 <Layout title="Recettes" description="Explorez nos délicieuses recettes de cuisine.">
@@ -41,7 +55,9 @@ const posts = (await getCollection("recipe")).sort(
                     class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
                   <div class="absolute top-3 right-3 bg-fuchsia-500 text-white rounded-full p-2 rotate-12 shadow-md">
-                    <span class="text-xs font-bold">YUM!</span>
+                    <span class="text-xs font-bold">
+                      {foodExclamations[Math.floor(Math.random() * foodExclamations.length)]}
+                    </span>
                   </div>
                 </div>
 
